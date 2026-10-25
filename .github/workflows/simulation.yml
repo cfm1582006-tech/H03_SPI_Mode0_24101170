@@ -1,0 +1,57 @@
+name: SPI Simulation
+
+on: [push, pull_request, workflow_dispatch]
+
+permissions:
+  contents: read
+
+jobs:
+  simulation:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Get source code
+        uses: actions/checkout@v7
+
+      - name: Install Icarus Verilog
+        run: sudo apt-get update && sudo apt-get install -y iverilog
+
+      - name: Compile RTL and testbench
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p evidence/runs/ci
+          git rev-parse HEAD > evidence/runs/ci/commit.txt
+          iverilog -V > evidence/runs/ci/tool_versions.txt 2>&1
+          sha256sum rtl/h03_spi_master.sv tb/h03_spi_master_tb.sv > evidence/runs/ci/sources.sha256
+          rc=0
+          iverilog -g2012 -Wall -s h03_spi_master_tb -o evidence/runs/ci/simulation.vvp rtl/h03_spi_master.sv tb/h03_spi_master_tb.sv > evidence/runs/ci/compile.log 2>&1 || rc=$?
+          echo "COMPILE_EXIT=$rc" > evidence/runs/ci/compile_exit.txt
+          cat evidence/runs/ci/compile.log
+          exit "$rc"
+
+      - name: Simulate and check five cases
+        shell: bash
+        run: |
+          set -euo pipefail
+          rc=0
+          vvp evidence/runs/ci/simulation.vvp +VCD=evidence/runs/ci/sample_mode0.vcd > evidence/runs/ci/simulation.log 2>&1 || rc=$?
+          echo "SIMULATION_EXIT=$rc" > evidence/runs/ci/simulation_exit.txt
+          cat evidence/runs/ci/simulation.log
+          test "$rc" -eq 0
+          test "$(grep -c '^CASE PASS ' evidence/runs/ci/simulation.log)" -eq 5
+          test "$(grep -c '^SIMULATION PASS ' evidence/runs/ci/simulation.log)" -eq 1
+          grep -Fx 'SIMULATION PASS cases=5 HC=4 ORDER=1' evidence/runs/ci/simulation.log
+
+      - name: Save evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: spi-evidence-${{ github.run_number }}
+          path: |
+            evidence/runs/ci/*.log
+            evidence/runs/ci/*.txt
+            evidence/runs/ci/*.sha256
+            evidence/runs/ci/*.vcd
+          if-no-files-found: error
+          retention-days: 30
