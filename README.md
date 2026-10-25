@@ -94,3 +94,16 @@ Compiler và simulator đều trả mã thoát 0.
 
 - [Log năm ca PASS](evidence/sim_003/simulation.log)
 - [Sóng VCD của năm ca](evidence/sim_003/sample_mode0.vcd)
+
+## GitHub Actions — CI #2
+
+- [Lần chạy SPI Simulation #2](https://github.com/cfm1582006-tech/H03_SPI_Mode0_24101170/actions/runs/40199246063)
+- Commit nguồn: `64f0cc54454bb8cba2594f943957b6847b17d430`
+- Môi trường: Ubuntu 24.04, Icarus Verilog.
+- Kết quả: compile=0, simulation=0, đủ 5 ca PASS.
+- Cấu hình: HALF_CYCLES=4, MSB-first, clock mô phỏng 100 MHz.
+
+Bằng chứng được tải từ artifact của lần chạy:
+- [Log mô phỏng](evidence/ci_002/simulation.log)
+- [Sóng VCD](evidence/ci_002/sample_mode0.vcd)
+- [Commit, phiên bản tool và hash nguồn](evidence/ci_002)
