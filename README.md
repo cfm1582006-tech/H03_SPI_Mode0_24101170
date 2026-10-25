@@ -69,3 +69,17 @@ Mở PowerShell tại thư mục gốc repository rồi chạy:
 
 RTL nền được tái sử dụng từ bản H03_SPI_Mode0_Improved của dự án trước.
 Testbench học tập được chuẩn bị cho lần thực hiện này.
+
+## Chi tiết frame A5/C3
+
+![Frame SPI gửi A5 và nhận C3](docs/figures/sim001_a5_c3.png)
+
+Cấu hình: HALF_CYCLES=4, MSB-first, chu kỳ clk=10 ns.
+
+Theo VCD của lần chạy sim_001:
+- Nhận START, CS xuống thấp tại 1385 ns.
+- MOSI tại tám cạnh lên SCLK: 10100101 = A5.
+- MISO tại tám cạnh lên SCLK: 11000011 = C3.
+- Cạnh xuống SCLK cuối tại 2025 ns; CS vẫn thấp.
+- RX cập nhật C3 và DONE lên cao tại 2035 ns.
+- Thời gian nhận lệnh đến DONE: 650 ns.
