@@ -1,0 +1,8 @@
+﻿VCD info: dumpfile evidence/runs/sim_003/sample_mode0.vcd opened for output.
+CASE PASS TX=00 RX=3c rises=8 falls=8 latency=65
+CASE PASS TX=ff RX=96 rises=8 falls=8 latency=65
+CASE PASS TX=a5 RX=c3 rises=8 falls=8 latency=65
+CASE PASS TX=96 RX=69 rises=8 falls=8 latency=65
+CASE PASS TX=01 RX=80 rises=8 falls=8 latency=65
+SIMULATION PASS cases=5 HC=4 ORDER=1
+tb/h03_spi_master_tb.sv:160: $finish called at 3386000 (1ps)

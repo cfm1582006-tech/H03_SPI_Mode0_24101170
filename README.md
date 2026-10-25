@@ -2,7 +2,7 @@
 
 Thiết kế SPI Master Mode 0 truyền/nhận đồng thời 8 bit bằng SystemVerilog.
 
-## Kết quả mô phỏng hiện tại
+## Kết quả mô phỏng ban đầu — sim_001
 
 Lần chạy: sim_001.
 Cấu hình: clock 100 MHz, HALF_CYCLES=4, MSB-first.
@@ -83,3 +83,14 @@ Theo VCD của lần chạy sim_001:
 - Cạnh xuống SCLK cuối tại 2025 ns; CS vẫn thấp.
 - RX cập nhật C3 và DONE lên cao tại 2035 ns.
 - Thời gian nhận lệnh đến DONE: 650 ns.
+
+
+## Kết quả mới nhất — sim_003
+
+Đạt 5 ca kiểm thử, cấu hình HALF_CYCLES=4, MSB-first.
+Hai ca bổ sung: TX=96/RX=69 và TX=01/RX=80.
+
+Compiler và simulator đều trả mã thoát 0.
+
+- [Log năm ca PASS](evidence/sim_003/simulation.log)
+- [Sóng VCD của năm ca](evidence/sim_003/sample_mode0.vcd)

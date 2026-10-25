@@ -154,7 +154,9 @@ module h03_spi_master_tb;
         run_frame(8'h00, 8'h3C);
         run_frame(8'hFF, 8'h96);
         run_frame(8'hA5, 8'hC3);
-        $display("SIMULATION PASS cases=3 HC=4 ORDER=1");
+        run_frame(8'h96, 8'h69);
+        run_frame(8'h01, 8'h80);
+        $display("SIMULATION PASS cases=5 HC=4 ORDER=1");
         $finish;
     end
 
