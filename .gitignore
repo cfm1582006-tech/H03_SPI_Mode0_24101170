@@ -1,0 +1,6 @@
+build/
+evidence/runs/
+flow/runs/
+*.vvp
+__pycache__/
+*.py[cod]
