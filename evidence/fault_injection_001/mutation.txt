@@ -1,0 +1,3 @@
+﻿Mutation: mosi <= MSB_FIRST ? ~tx_data[7] : tx_data[0];
+Expected: compile exit 0; simulation detects incorrect outputs at START acceptance.
+The original rtl/h03_spi_master.sv was not modified; its SHA-256 remained unchanged.
