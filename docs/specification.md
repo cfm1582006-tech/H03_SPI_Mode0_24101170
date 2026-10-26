@@ -73,5 +73,8 @@ Thời gian từ nhận START đến DONE dự kiến: 65 chu kỳ clk = 650 ns.
 
 ## Trạng thái
 
-Đây là hành vi cần kiểm chứng.
-Chưa có kết quả mô phỏng cho phiên bản này.
+Đặc tả này là chuẩn hành vi để đối chiếu RTL và testbench.
+Đã có năm ca mô phỏng PASS ở HALF_CYCLES=4, MSB_FIRST=1,
+chu kỳ clk=10 ns; xem [log CI #2](../evidence/ci_002/simulation.log).
+Phạm vi đã kiểm tra và các tình huống chưa kiểm thử được ghi tại
+[bảng đối chiếu](verification_matrix.md).

@@ -107,3 +107,18 @@ Bằng chứng được tải từ artifact của lần chạy:
 - [Log mô phỏng](evidence/ci_002/simulation.log)
 - [Sóng VCD](evidence/ci_002/sample_mode0.vcd)
 - [Commit, phiên bản tool và hash nguồn](evidence/ci_002)
+
+## Tái lập và tổng hợp kết quả
+
+- [Kiến trúc lõi](docs/architecture.md)
+- [Chạy lại bằng một script và đọc metadata](docs/reproduction.md)
+- [Đối chiếu yêu cầu với evidence](docs/verification_matrix.md)
+
+Chạy từ thư mục gốc repository:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\run_sim.ps1
+```
+
+Kết quả hiện tại thuộc chặng mô phỏng lõi: năm ca ở H=4, MSB-first.
+Wrapper, flow RTL đến GDSII và bản báo cáo/slide hoàn chỉnh còn cần thực hiện.
