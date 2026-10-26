@@ -1,0 +1,46 @@
+name: SPI Wrapper Simulation
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  wrapper:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - name: Install simulator
+        run: sudo apt-get update && sudo apt-get install -y iverilog
+      - name: Compile and test wrapper
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p evidence/runs/wrapper_ci
+          cd evidence/runs/wrapper_ci
+          git rev-parse HEAD > commit.txt
+          iverilog -V > tool_versions.txt 2>&1
+          sha256sum ../../../rtl/h03_spi_master.sv ../../../rtl/tt_um_h03_spi_mode0.sv ../../../tb/h03_wrapper_tb.sv > sources.sha256
+          rc=0
+          iverilog -g2012 -Wall -s h03_wrapper_tb -o wrapper.vvp ../../../rtl/h03_spi_master.sv ../../../rtl/tt_um_h03_spi_mode0.sv ../../../tb/h03_wrapper_tb.sv > compile.log 2>&1 || rc=$?
+          echo "COMPILE_EXIT=$rc" > compile_exit.txt
+          cat compile.log
+          test "$rc" -eq 0
+          rc=0
+          vvp wrapper.vvp +VCD=wrapper_mode0.vcd > simulation.log 2>&1 || rc=$?
+          echo "SIMULATION_EXIT=$rc" > simulation_exit.txt
+          cat simulation.log
+          test "$rc" -eq 0
+          test "$(grep -c '^WRAPPER CASE PASS ' simulation.log)" -eq 13
+          test "$(grep -c '^WRAPPER PASS ' simulation.log)" -eq 1
+          grep -Fx 'WRAPPER PASS HC=4 ORDER=1 cases=13' simulation.log
+      - name: Save wrapper evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: wrapper-evidence-${{ github.run_number }}
+          path: |
+            evidence/runs/wrapper_ci/*.log
+            evidence/runs/wrapper_ci/*.txt
+            evidence/runs/wrapper_ci/*.sha256
+            evidence/runs/wrapper_ci/*.vcd
+          if-no-files-found: error
+          retention-days: 30

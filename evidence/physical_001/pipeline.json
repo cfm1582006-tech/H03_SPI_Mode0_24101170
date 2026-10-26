@@ -1,0 +1,220 @@
+{
+  "status": "PASS",
+  "tag": "physical_001",
+  "started_utc": "2026-10-26T02:03:35.550395+00:00",
+  "root": "/mnt/d/H03_SPI_Mode0/DL_24101170_H03",
+  "pdk_root": "/home/duongluong/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71",
+  "source_sha256": {
+    "rtl/h03_spi_master.sv": "1eccb540268defa425944cff660fc8f2e0bc3d541fe7b79d6e6abbbe4a6526f8",
+    "rtl/tt_um_h03_spi_mode0.sv": "c54575b908f760cc24936b70145bf6f2c1d997966d2e32b4c9fb002eb03ec621",
+    "tb/h03_spi_master_tb.sv": "29fcd20fa962d534fac8121fd44e7699708579ffc7f775c25b666c0c88348966",
+    "tb/h03_wrapper_tb.sv": "ccb776f3ae87b9029a64315115f0f97295c5e5824f3ec39238ae12d82aacf9c0",
+    "flow/config_wrapper.json": "86af027c82ce0b84f81737caac4a4f2624f3abe2f4c6405c93fd904810199a64",
+    "flow/wrapper.sdc": "34c1cf82d0181016115f040263ade72b2e74271d5b47c63d7f8be5d6a40cb3e2",
+    "scripts/run_physical.py": "76776dd0636ccf7ddf078ea6be001b9f8cc3e8ad3f87ff007521fa857baf6cf5",
+    "scripts/collect_physical.py": "9d75d9b12d9e7e32fd641dd7c48bd6edaa185491c57ed7a5d18188c7ff0e28f9",
+    "scripts/run_physical.sh": "b472868fb59e46f4ecb6622d4bd6db73deed826ad937abcbe8c2d4a9746f8b09"
+  },
+  "commands": [
+    {
+      "stage": "git_head",
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit": 0,
+      "log": "/mnt/d/H03_SPI_Mode0/DL_24101170_H03/evidence/runs/physical_001/git_head.log",
+      "started_utc": "2026-10-26T02:03:35.752153+00:00"
+    },
+    {
+      "stage": "git_status",
+      "argv": [
+        "git",
+        "status",
+        "--porcelain=v1",
+        "--untracked-files=normal"
+      ],
+      "exit": 0,
+      "log": "/mnt/d/H03_SPI_Mode0/DL_24101170_H03/evidence/runs/physical_001/git_status.log",
+      "started_utc": "2026-10-26T02:03:37.769795+00:00"
+    },
+    {
+      "stage": "librelane_version",
+      "argv": [
+        "librelane",
+        "--version"
+      ],
+      "exit": 0,
+      "log": "/mnt/d/H03_SPI_Mode0/DL_24101170_H03/evidence/runs/physical_001/librelane_version.log",
+      "started_utc": "2026-10-26T02:03:39.795449+00:00"
+    },
+    {
+      "stage": "iverilog_version",
+      "argv": [
+        "iverilog",
+        "-V"
+      ],
+      "exit": 0,
+      "log": "/mnt/d/H03_SPI_Mode0/DL_24101170_H03/evidence/runs/physical_001/iverilog_version.log",
+      "started_utc": "2026-10-26T02:03:41.812170+00:00"
+    },
+    {
+      "stage": "openroad_version",
+      "argv": [
+        "openroad",
+        "-version"
+      ],
+      "exit": 0,
+      "log": "/mnt/d/H03_SPI_Mode0/DL_24101170_H03/evidence/runs/physical_001/openroad_version.log",
+      "started_utc": "2026-10-26T02:03:43.829258+00:00"
+    },
+    {
+      "stage": "yosys_version",
+      "argv": [
+        "yosys",
+        "-V"
+      ],
+      "exit": 0,
+      "log": "/mnt/d/H03_SPI_Mode0/DL_24101170_H03/evidence/runs/physical_001/yosys_version.log",
+      "started_utc": "2026-10-26T02:03:45.855021+00:00"
+    },
+    {
+      "stage": "core_compile",
+      "argv": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "h03_spi_master_tb",
+        "-o",
+        "/mnt/d/H03_SPI_Mode0/DL_24101170_H03/evidence/runs/physical_001/core.vvp",
+        "-Wall",
+        "/mnt/d/H03_SPI_Mode0/DL_24101170_H03/rtl/h03_spi_master.sv",
+        "/mnt/d/H03_SPI_Mode0/DL_24101170_H03/tb/h03_spi_master_tb.sv"
+      ],
+      "exit": 0,
+      "log": "/mnt/d/H03_SPI_Mode0/DL_24101170_H03/evidence/runs/physical_001/core_compile.log",
+      "started_utc": "2026-10-26T02:03:47.879949+00:00"
+    },
+    {
+      "stage": "core_simulation",
+      "argv": [
+        "vvp",
+        "/mnt/d/H03_SPI_Mode0/DL_24101170_H03/evidence/runs/physical_001/core.vvp",
+        "+VCD=/mnt/d/H03_SPI_Mode0/DL_24101170_H03/evidence/runs/physical_001/core.vcd"
+      ],
+      "exit": 0,
+      "log": "/mnt/d/H03_SPI_Mode0/DL_24101170_H03/evidence/runs/physical_001/core_simulation.log",
+      "started_utc": "2026-10-26T02:03:49.893699+00:00"
+    },
+    {
+      "stage": "wrapper_compile",
+      "argv": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "h03_wrapper_tb",
+        "-o",
+        "/mnt/d/H03_SPI_Mode0/DL_24101170_H03/evidence/runs/physical_001/wrapper.vvp",
+        "-Wall",
+        "/mnt/d/H03_SPI_Mode0/DL_24101170_H03/rtl/h03_spi_master.sv",
+        "/mnt/d/H03_SPI_Mode0/DL_24101170_H03/rtl/tt_um_h03_spi_mode0.sv",
+        "/mnt/d/H03_SPI_Mode0/DL_24101170_H03/tb/h03_wrapper_tb.sv"
+      ],
+      "exit": 0,
+      "log": "/mnt/d/H03_SPI_Mode0/DL_24101170_H03/evidence/runs/physical_001/wrapper_compile.log",
+      "started_utc": "2026-10-26T02:03:51.922055+00:00"
+    },
+    {
+      "stage": "wrapper_simulation",
+      "argv": [
+        "vvp",
+        "/mnt/d/H03_SPI_Mode0/DL_24101170_H03/evidence/runs/physical_001/wrapper.vvp",
+        "+VCD=/mnt/d/H03_SPI_Mode0/DL_24101170_H03/evidence/runs/physical_001/wrapper.vcd"
+      ],
+      "exit": 0,
+      "log": "/mnt/d/H03_SPI_Mode0/DL_24101170_H03/evidence/runs/physical_001/wrapper_simulation.log",
+      "started_utc": "2026-10-26T02:03:53.935809+00:00"
+    },
+    {
+      "stage": "flow",
+      "argv": [
+        "librelane",
+        "--manual-pdk",
+        "--pdk-root",
+        "/home/duongluong/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71",
+        "--jobs",
+        "4",
+        "--condensed",
+        "--run-tag",
+        "physical_001",
+        "/mnt/d/H03_SPI_Mode0/DL_24101170_H03/flow/config_wrapper.json"
+      ],
+      "exit": 0,
+      "log": "/mnt/d/H03_SPI_Mode0/DL_24101170_H03/evidence/runs/physical_001/flow.log",
+      "started_utc": "2026-10-26T02:03:55.961578+00:00"
+    },
+    {
+      "stage": "gate_compile",
+      "argv": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "h03_wrapper_tb",
+        "-o",
+        "/mnt/d/H03_SPI_Mode0/DL_24101170_H03/evidence/runs/physical_001/gate.vvp",
+        "-DFUNCTIONAL",
+        "-DGATE_LEVEL",
+        "/home/duongluong/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/verilog/primitives.v",
+        "/home/duongluong/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/verilog/sky130_fd_sc_hd.v",
+        "/mnt/d/H03_SPI_Mode0/DL_24101170_H03/flow/runs/physical_001/final/nl/tt_um_h03_spi_mode0.nl.v",
+        "/mnt/d/H03_SPI_Mode0/DL_24101170_H03/tb/h03_wrapper_tb.sv"
+      ],
+      "exit": 0,
+      "log": "/mnt/d/H03_SPI_Mode0/DL_24101170_H03/evidence/runs/physical_001/gate_compile.log",
+      "started_utc": "2026-10-26T02:05:34.173057+00:00"
+    },
+    {
+      "stage": "gate_simulation",
+      "argv": [
+        "vvp",
+        "/mnt/d/H03_SPI_Mode0/DL_24101170_H03/evidence/runs/physical_001/gate.vvp",
+        "+VCD=/mnt/d/H03_SPI_Mode0/DL_24101170_H03/evidence/runs/physical_001/gate.vcd"
+      ],
+      "exit": 0,
+      "log": "/mnt/d/H03_SPI_Mode0/DL_24101170_H03/evidence/runs/physical_001/gate_simulation.log",
+      "started_utc": "2026-10-26T02:05:36.197301+00:00"
+    },
+    {
+      "stage": "collect",
+      "argv": [
+        "/nix/store/qnkq5r0v5zpifw744hdd6r4f4izr13mc-devshell-dir/bin/python3",
+        "/mnt/d/H03_SPI_Mode0/DL_24101170_H03/scripts/collect_physical.py",
+        "--run-dir",
+        "/mnt/d/H03_SPI_Mode0/DL_24101170_H03/flow/runs/physical_001",
+        "--out",
+        "/mnt/d/H03_SPI_Mode0/DL_24101170_H03/evidence/physical_001",
+        "--flow-exit",
+        "0"
+      ],
+      "exit": 0,
+      "log": "/mnt/d/H03_SPI_Mode0/DL_24101170_H03/evidence/runs/physical_001/collect.log",
+      "started_utc": "2026-10-26T02:05:38.228243+00:00"
+    }
+  ],
+  "failures": [],
+  "scope": "H4/MSB-first; standalone SKY130 macro; GLS has no SDF; no formal proof.",
+  "core": {
+    "status": "PASS",
+    "cases": 5
+  },
+  "wrapper": {
+    "status": "PASS",
+    "cases": 13
+  },
+  "gate": {
+    "status": "PASS",
+    "cases": 13
+  },
+  "finished_utc": "2026-10-26T02:05:44.266499+00:00"
+}

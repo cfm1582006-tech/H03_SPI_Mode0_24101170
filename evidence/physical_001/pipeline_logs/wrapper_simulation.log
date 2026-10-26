@@ -1,0 +1,16 @@
+VCD info: dumpfile /mnt/d/H03_SPI_Mode0/DL_24101170_H03/evidence/runs/physical_001/wrapper.vcd opened for output.
+WRAPPER CASE PASS HC=4 ORDER=1 reset_pin_map
+WRAPPER CASE PASS HC=4 ORDER=1 disabled_start_ignored
+WRAPPER CASE PASS HC=4 ORDER=1 enable_held_start
+WRAPPER CASE PASS HC=4 ORDER=1 normal_A5_3C
+WRAPPER CASE PASS HC=4 ORDER=1 normal_96_C3
+WRAPPER CASE PASS HC=4 ORDER=1 ena_drop_completes
+WRAPPER CASE PASS HC=4 ORDER=1 busy_start_pulses
+WRAPPER CASE PASS HC=4 ORDER=1 held_start_first
+WRAPPER CASE PASS HC=4 ORDER=1 held_start_distinct_second
+WRAPPER CASE PASS HC=4 ORDER=1 ena_drop_held_start
+WRAPPER CASE PASS HC=4 ORDER=1 disabled_held_start_no_retrigger
+WRAPPER CASE PASS HC=4 ORDER=1 reset_abort
+WRAPPER CASE PASS HC=4 ORDER=1 after_reset
+WRAPPER PASS HC=4 ORDER=1 cases=13
+/mnt/d/H03_SPI_Mode0/DL_24101170_H03/tb/h03_wrapper_tb.sv:173: $finish called at 6316000 (1ps)

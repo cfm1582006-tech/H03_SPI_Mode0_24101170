@@ -121,4 +121,10 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\run_sim.ps1
 ```
 
 Kết quả hiện tại thuộc chặng mô phỏng lõi: năm ca ở H=4, MSB-first.
-Wrapper, flow RTL đến GDSII và bản báo cáo/slide hoàn chỉnh còn cần thực hiện.
+Wrapper và RTL đến GDSII: xem [kết quả macro](docs/physical_results.md). Báo cáo và slide do người học tự thực hiện.
+
+## Wrapper va RTL den GDSII
+
+- [Pinmap va kiem thu wrapper](docs/wrapper.md)
+- [Cach chay flow](docs/physical_flow.md)
+- [Ket qua va gioi han](docs/physical_results.md)

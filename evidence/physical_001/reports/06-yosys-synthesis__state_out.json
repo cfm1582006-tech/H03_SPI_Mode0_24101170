@@ -1,0 +1,14 @@
+{
+    "json_h": "/mnt/d/H03_SPI_Mode0/DL_24101170_H03/flow/runs/physical_001/05-yosys-jsonheader/tt_um_h03_spi_mode0.h.json",
+    "nl": "/mnt/d/H03_SPI_Mode0/DL_24101170_H03/flow/runs/physical_001/06-yosys-synthesis/tt_um_h03_spi_mode0.nl.v",
+    "metrics": {
+        "design__lint_error__count": 0,
+        "design__lint_timing_construct__count": 0,
+        "design__lint_warning__count": 0,
+        "design__inferred_latch__count": 0,
+        "design__instance__count": 144,
+        "design__instance__area": 1667.8496,
+        "design__instance_unmapped__count": 0,
+        "synthesis__check_error__count": 0
+    }
+}

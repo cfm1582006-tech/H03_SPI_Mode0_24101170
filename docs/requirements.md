@@ -27,7 +27,7 @@ Kiểm chứng bằng công cụ phần mềm, không dùng board FPGA.
 evidence được lưu tại sim_003 và CI #2.
 Bảng trên giữ nguyên yêu cầu của đề tài; trạng thái từng yêu cầu và
 giới hạn kiểm chứng xem [bảng đối chiếu](verification_matrix.md).
-Wrapper và flow RTL đến GDSII chưa được thực hiện cho phiên bản này.
+Wrapper và flow RTL đến GDSII đã có kết quả macro; xem [kết quả mới](physical_results.md).
 
 Các lựa chọn về thứ tự bit, bộ chia xung, START, reset,
 BUSY và DONE được ghi trong tài liệu specification.

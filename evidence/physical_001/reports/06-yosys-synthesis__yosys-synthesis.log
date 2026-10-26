@@ -1,0 +1,1409 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.62 (git sha1 7326bb7d6641500ecb285c291a54a662cb1e76cf, clang++ 21.1.2 -fPIC -O3)
+
+1. Executing Liberty frontend: /home/duongluong/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+Imported 428 cell types from liberty file.
+[INFO] Using SDC file '/mnt/d/H03_SPI_Mode0/DL_24101170_H03/flow/runs/physical_001/06-yosys-synthesis/synthesis.abc.sdc' for ABC…
+
+2. Executing Verilog-2005 frontend: /mnt/d/H03_SPI_Mode0/DL_24101170_H03/rtl/h03_spi_master.sv
+Parsing SystemVerilog input from `/mnt/d/H03_SPI_Mode0/DL_24101170_H03/rtl/h03_spi_master.sv' to AST representation.
+Storing AST representation for module `$abstract\h03_spi_master'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: /mnt/d/H03_SPI_Mode0/DL_24101170_H03/rtl/tt_um_h03_spi_mode0.sv
+Parsing SystemVerilog input from `/mnt/d/H03_SPI_Mode0/DL_24101170_H03/rtl/tt_um_h03_spi_mode0.sv' to AST representation.
+Storing AST representation for module `$abstract\tt_um_h03_spi_mode0'.
+Successfully finished Verilog frontend.
+
+4. Executing HIERARCHY pass (managing design hierarchy).
+
+5. Executing AST frontend in derive mode using pre-parsed AST for module `\tt_um_h03_spi_mode0'.
+Generating RTLIL representation for module `\tt_um_h03_spi_mode0'.
+
+5.1. Analyzing design hierarchy..
+Top module:  \tt_um_h03_spi_mode0
+Parameter \HALF_CYCLES = 4
+Parameter \MSB_FIRST = 1'1
+
+5.2. Executing AST frontend in derive mode using pre-parsed AST for module `\h03_spi_master'.
+Parameter \HALF_CYCLES = 4
+Parameter \MSB_FIRST = 1'1
+Generating RTLIL representation for module `$paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master'.
+
+5.3. Analyzing design hierarchy..
+Top module:  \tt_um_h03_spi_mode0
+Used module:     $paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master
+
+5.4. Analyzing design hierarchy..
+Top module:  \tt_um_h03_spi_mode0
+Used module:     $paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master
+Removing unused module `$abstract\tt_um_h03_spi_mode0'.
+Removing unused module `$abstract\h03_spi_master'.
+Removed 2 unused modules.
+Renaming module tt_um_h03_spi_mode0 to tt_um_h03_spi_mode0.
+
+6. Executing ATTRMAP pass (move or copy attributes).
+
+7. Executing TRIBUF pass.
+
+8. Executing HIERARCHY pass (managing design hierarchy).
+
+8.1. Analyzing design hierarchy..
+Top module:  \tt_um_h03_spi_mode0
+Used module:     $paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master
+
+8.2. Analyzing design hierarchy..
+Top module:  \tt_um_h03_spi_mode0
+Used module:     $paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master
+Removed 0 unused modules.
+
+9. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `$paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master.$proc$/mnt/d/H03_SPI_Mode0/DL_24101170_H03/rtl/h03_spi_master.sv:24$11'.
+Removing empty process `$paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master.$proc$/mnt/d/H03_SPI_Mode0/DL_24101170_H03/rtl/h03_spi_master.sv:24$11'.
+Found and cleaned up 1 empty switch in `$paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master.$proc$/mnt/d/H03_SPI_Mode0/DL_24101170_H03/rtl/h03_spi_master.sv:39$5'.
+Cleaned up 2 empty switches.
+
+10. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 5 switch rules as full_case in process $proc$/mnt/d/H03_SPI_Mode0/DL_24101170_H03/rtl/h03_spi_master.sv:39$5 in module $paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master.
+Removed a total of 0 dead cases.
+
+11. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 2 redundant assignments.
+Promoted 0 assignments to connections.
+
+12. Executing PROC_INIT pass (extract init attributes).
+
+13. Executing PROC_ARST pass (detect async resets in processes).
+
+14. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~6 debug messages>
+
+15. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master.$proc$/mnt/d/H03_SPI_Mode0/DL_24101170_H03/rtl/h03_spi_master.sv:39$5'.
+     1/11: $0\done[0:0]
+     2/11: $0\busy[0:0]
+     3/11: $0\state[1:0]
+     4/11: $0\rx_shift[7:0]
+     5/11: $0\tx_shift[7:0]
+     6/11: $0\edge_count[3:0]
+     7/11: $0\half_count[1:0]
+     8/11: $0\rx_data[7:0]
+     9/11: $0\cs_n[0:0]
+    10/11: $0\sclk[0:0]
+    11/11: $0\mosi[0:0]
+
+16. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+17. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `$paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master.\mosi' using process `$paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master.$proc$/mnt/d/H03_SPI_Mode0/DL_24101170_H03/rtl/h03_spi_master.sv:39$5'.
+  created $dff cell `$procdff$154' with positive edge clock.
+Creating register for signal `$paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master.\sclk' using process `$paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master.$proc$/mnt/d/H03_SPI_Mode0/DL_24101170_H03/rtl/h03_spi_master.sv:39$5'.
+  created $dff cell `$procdff$155' with positive edge clock.
+Creating register for signal `$paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master.\cs_n' using process `$paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master.$proc$/mnt/d/H03_SPI_Mode0/DL_24101170_H03/rtl/h03_spi_master.sv:39$5'.
+  created $dff cell `$procdff$156' with positive edge clock.
+Creating register for signal `$paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master.\busy' using process `$paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master.$proc$/mnt/d/H03_SPI_Mode0/DL_24101170_H03/rtl/h03_spi_master.sv:39$5'.
+  created $dff cell `$procdff$157' with positive edge clock.
+Creating register for signal `$paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master.\done' using process `$paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master.$proc$/mnt/d/H03_SPI_Mode0/DL_24101170_H03/rtl/h03_spi_master.sv:39$5'.
+  created $dff cell `$procdff$158' with positive edge clock.
+Creating register for signal `$paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master.\rx_data' using process `$paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master.$proc$/mnt/d/H03_SPI_Mode0/DL_24101170_H03/rtl/h03_spi_master.sv:39$5'.
+  created $dff cell `$procdff$159' with positive edge clock.
+Creating register for signal `$paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master.\half_count' using process `$paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master.$proc$/mnt/d/H03_SPI_Mode0/DL_24101170_H03/rtl/h03_spi_master.sv:39$5'.
+  created $dff cell `$procdff$160' with positive edge clock.
+Creating register for signal `$paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master.\edge_count' using process `$paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master.$proc$/mnt/d/H03_SPI_Mode0/DL_24101170_H03/rtl/h03_spi_master.sv:39$5'.
+  created $dff cell `$procdff$161' with positive edge clock.
+Creating register for signal `$paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master.\tx_shift' using process `$paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master.$proc$/mnt/d/H03_SPI_Mode0/DL_24101170_H03/rtl/h03_spi_master.sv:39$5'.
+  created $dff cell `$procdff$162' with positive edge clock.
+Creating register for signal `$paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master.\rx_shift' using process `$paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master.$proc$/mnt/d/H03_SPI_Mode0/DL_24101170_H03/rtl/h03_spi_master.sv:39$5'.
+  created $dff cell `$procdff$163' with positive edge clock.
+Creating register for signal `$paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master.\state' using process `$paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master.$proc$/mnt/d/H03_SPI_Mode0/DL_24101170_H03/rtl/h03_spi_master.sv:39$5'.
+  created $dff cell `$procdff$164' with positive edge clock.
+
+18. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+19. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 6 empty switches in `$paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master.$proc$/mnt/d/H03_SPI_Mode0/DL_24101170_H03/rtl/h03_spi_master.sv:39$5'.
+Removing empty process `$paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master.$proc$/mnt/d/H03_SPI_Mode0/DL_24101170_H03/rtl/h03_spi_master.sv:39$5'.
+Cleaned up 6 empty switches.
+
+20. Executing CHECK pass (checking for obvious problems).
+Checking module tt_um_h03_spi_mode0...
+Checking module $paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master...
+Found and reported 0 problems.
+
+21. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_h03_spi_mode0.
+<suppressed ~1 debug messages>
+Optimizing module $paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master.
+<suppressed ~25 debug messages>
+
+22. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod$1fb8ca574ef5f0939a325ed2e45b1873d84d5e90\h03_spi_master.
+<suppressed ~1 debug messages>
+
+23. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_h03_spi_mode0.
+
+24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_h03_spi_mode0..
+Removed 2 unused cells and 50 unused wires.
+<suppressed ~3 debug messages>
+
+25. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_h03_spi_mode0.
+
+26. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_h03_spi_mode0'.
+Computing hashes of 83 cells of `\tt_um_h03_spi_mode0'.
+Finding duplicate cells in `\tt_um_h03_spi_mode0'.
+Computing hashes of 64 cells of `\tt_um_h03_spi_mode0'.
+Finding duplicate cells in `\tt_um_h03_spi_mode0'.
+<suppressed ~57 debug messages>
+Removed a total of 19 cells.
+
+27. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_h03_spi_mode0..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~55 debug messages>
+
+28. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_h03_spi_mode0.
+Performed a total of 0 changes.
+
+29. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_h03_spi_mode0'.
+Computing hashes of 64 cells of `\tt_um_h03_spi_mode0'.
+Finding duplicate cells in `\tt_um_h03_spi_mode0'.
+Removed a total of 0 cells.
+
+30. Executing OPT_DFF pass (perform DFF optimizations).
+
+31. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_h03_spi_mode0..
+Removed 0 unused cells and 19 unused wires.
+<suppressed ~1 debug messages>
+
+32. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_h03_spi_mode0.
+
+33. Rerunning OPT passes. (Maybe there is more to do…)
+
+34. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_h03_spi_mode0..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~55 debug messages>
+
+35. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_h03_spi_mode0.
+Performed a total of 0 changes.
+
+36. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_h03_spi_mode0'.
+Computing hashes of 64 cells of `\tt_um_h03_spi_mode0'.
+Finding duplicate cells in `\tt_um_h03_spi_mode0'.
+Removed a total of 0 cells.
+
+37. Executing OPT_DFF pass (perform DFF optimizations).
+
+38. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_h03_spi_mode0..
+
+39. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_h03_spi_mode0.
+
+40. Executing FSM pass (extract and optimize FSM).
+
+40.1. Executing FSM_DETECT pass (finding FSMs in design).
+Found FSM state register tt_um_h03_spi_mode0.core.state.
+
+40.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+Extracting FSM `\core.state' from module `\tt_um_h03_spi_mode0'.
+  found $dff cell for state register: $flatten\core.$procdff$164
+  root of input selection tree: $flatten\core.$0\state[1:0]
+  found reset state: 2'00 (guessed from mux tree)
+  found ctrl input: \rst_n
+  found state code: 2'00
+  found ctrl input: $flatten\core.$procmux$102_CMP
+  found ctrl input: $flatten\core.$procmux$118_CMP
+  found ctrl input: \core.half_tick
+  found ctrl input: \core.sclk
+  found ctrl input: $flatten\core.$eq$/mnt/d/H03_SPI_Mode0/DL_24101170_H03/rtl/h03_spi_master.sv:91$9_Y
+  found state code: 2'10
+  found ctrl input: \core.start
+  found state code: 2'01
+  found ctrl output: $flatten\core.$procmux$118_CMP
+  found ctrl output: $flatten\core.$procmux$108_CMP
+  found ctrl output: $flatten\core.$procmux$102_CMP
+  ctrl inputs: { \core.start \core.sclk \core.half_tick $flatten\core.$eq$/mnt/d/H03_SPI_Mode0/DL_24101170_H03/rtl/h03_spi_master.sv:91$9_Y \rst_n }
+  ctrl outputs: { $flatten\core.$0\state[1:0] $flatten\core.$procmux$102_CMP $flatten\core.$procmux$108_CMP $flatten\core.$procmux$118_CMP }
+  transition:       2'00 5'----0 ->       2'00 5'00001
+  transition:       2'00 5'0---1 ->       2'00 5'00001
+  transition:       2'00 5'1---1 ->       2'01 5'01001
+  transition:       2'10 5'----0 ->       2'00 5'00010
+  transition:       2'10 5'----1 ->       2'00 5'00010
+  transition:       2'01 5'----0 ->       2'00 5'00100
+  transition:       2'01 5'--0-1 ->       2'01 5'01100
+  transition:       2'01 5'-01-1 ->       2'01 5'01100
+  transition:       2'01 5'-1101 ->       2'01 5'01100
+  transition:       2'01 5'-1111 ->       2'10 5'10100
+
+40.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+Optimizing FSM `$fsm$\core.state$166' from module `\tt_um_h03_spi_mode0'.
+  Merging pattern 5'----0 and 5'----1 from group (1 0 5'00010).
+  Merging pattern 5'----1 and 5'----0 from group (1 0 5'00010).
+
+40.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_h03_spi_mode0..
+Removed 10 unused cells and 10 unused wires.
+<suppressed ~11 debug messages>
+
+40.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+Optimizing FSM `$fsm$\core.state$166' from module `\tt_um_h03_spi_mode0'.
+  Removing unused output signal $flatten\core.$0\state[1:0] [0].
+  Removing unused output signal $flatten\core.$0\state[1:0] [1].
+
+40.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+Recoding FSM `$fsm$\core.state$166' from module `\tt_um_h03_spi_mode0' using `auto' encoding:
+  mapping auto encoding to `one-hot` for this FSM.
+  00 -> --1
+  10 -> -1-
+  01 -> 1--
+
+40.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+FSM `$fsm$\core.state$166' from module `tt_um_h03_spi_mode0':
+-------------------------------------
+
+  Information on FSM $fsm$\core.state$166 (\core.state):
+
+  Number of input signals:    5
+  Number of output signals:   3
+  Number of state bits:       3
+
+  Input signals:
+    0: \rst_n
+    1: $flatten\core.$eq$/mnt/d/H03_SPI_Mode0/DL_24101170_H03/rtl/h03_spi_master.sv:91$9_Y
+    2: \core.half_tick
+    3: \core.sclk
+    4: \core.start
+
+  Output signals:
+    0: $flatten\core.$procmux$118_CMP
+    1: $flatten\core.$procmux$108_CMP
+    2: $flatten\core.$procmux$102_CMP
+
+  State encoding:
+    0:      3'--1  <RESET STATE>
+    1:      3'-1-
+    2:      3'1--
+
+  Transition Table (state_in, ctrl_in, state_out, ctrl_out):
+      0:     0 5'----0   ->     0 3'001
+      1:     0 5'0---1   ->     0 3'001
+      2:     0 5'1---1   ->     2 3'001
+      3:     1 5'-----   ->     0 3'010
+      4:     2 5'----0   ->     0 3'100
+      5:     2 5'-1111   ->     1 3'100
+      6:     2 5'-1101   ->     2 3'100
+      7:     2 5'--0-1   ->     2 3'100
+      8:     2 5'-01-1   ->     2 3'100
+
+-------------------------------------
+
+40.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+Mapping FSM `$fsm$\core.state$166' from module `\tt_um_h03_spi_mode0'.
+
+41. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_h03_spi_mode0.
+<suppressed ~1 debug messages>
+
+42. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_h03_spi_mode0'.
+Computing hashes of 70 cells of `\tt_um_h03_spi_mode0'.
+Finding duplicate cells in `\tt_um_h03_spi_mode0'.
+Removed a total of 0 cells.
+
+43. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_h03_spi_mode0..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~48 debug messages>
+
+44. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_h03_spi_mode0.
+Performed a total of 0 changes.
+
+45. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_h03_spi_mode0'.
+Computing hashes of 70 cells of `\tt_um_h03_spi_mode0'.
+Finding duplicate cells in `\tt_um_h03_spi_mode0'.
+Removed a total of 0 cells.
+
+46. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $flatten\core.$procdff$163 ($dff) from module tt_um_h03_spi_mode0 (D = $flatten\core.$procmux$48_Y, Q = \core.rx_shift, rval = 8'00000000).
+Adding EN signal on $auto$ff.cc:337:slice$203 ($sdff) from module tt_um_h03_spi_mode0 (D = $flatten\core.$procmux$48_Y, Q = \core.rx_shift).
+Adding SRST signal on $flatten\core.$procdff$162 ($dff) from module tt_um_h03_spi_mode0 (D = $flatten\core.$procmux$64_Y, Q = \core.tx_shift, rval = 8'00000000).
+Adding EN signal on $auto$ff.cc:337:slice$215 ($sdff) from module tt_um_h03_spi_mode0 (D = $flatten\core.$procmux$64_Y, Q = \core.tx_shift).
+Adding SRST signal on $flatten\core.$procdff$161 ($dff) from module tt_um_h03_spi_mode0 (D = $flatten\core.$procmux$83_Y, Q = \core.edge_count, rval = 4'0000).
+Adding EN signal on $auto$ff.cc:337:slice$229 ($sdff) from module tt_um_h03_spi_mode0 (D = $flatten\core.$procmux$83_Y, Q = \core.edge_count).
+Adding SRST signal on $flatten\core.$procdff$160 ($dff) from module tt_um_h03_spi_mode0 (D = $flatten\core.$procmux$97_Y, Q = \core.half_count, rval = 2'00).
+Adding EN signal on $auto$ff.cc:337:slice$239 ($sdff) from module tt_um_h03_spi_mode0 (D = $flatten\core.$procmux$97_Y, Q = \core.half_count).
+Adding SRST signal on $flatten\core.$procdff$159 ($dff) from module tt_um_h03_spi_mode0 (D = $flatten\core.$procmux$107_Y, Q = \core.rx_data, rval = 8'00000000).
+Adding EN signal on $auto$ff.cc:337:slice$243 ($sdff) from module tt_um_h03_spi_mode0 (D = \core.rx_shift, Q = \core.rx_data).
+Adding SRST signal on $flatten\core.$procdff$158 ($dff) from module tt_um_h03_spi_mode0 (D = $flatten\core.$procmux$13_Y, Q = \core.done, rval = 1'0).
+Adding SRST signal on $flatten\core.$procdff$157 ($dff) from module tt_um_h03_spi_mode0 (D = $flatten\core.$procmux$20_Y, Q = \core.busy, rval = 1'0).
+Adding SRST signal on $flatten\core.$procdff$156 ($dff) from module tt_um_h03_spi_mode0 (D = $flatten\core.$procmux$114_Y, Q = \core.cs_n, rval = 1'1).
+Adding EN signal on $auto$ff.cc:337:slice$247 ($sdff) from module tt_um_h03_spi_mode0 (D = $flatten\core.$procmux$114_Y, Q = \core.cs_n).
+Adding SRST signal on $flatten\core.$procdff$155 ($dff) from module tt_um_h03_spi_mode0 (D = $flatten\core.$procmux$128_Y, Q = \core.sclk, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$251 ($sdff) from module tt_um_h03_spi_mode0 (D = $flatten\core.$procmux$126_Y, Q = \core.sclk).
+Adding SRST signal on $flatten\core.$procdff$154 ($dff) from module tt_um_h03_spi_mode0 (D = $flatten\core.$procmux$136_Y, Q = \core.mosi, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$255 ($sdff) from module tt_um_h03_spi_mode0 (D = $flatten\core.$procmux$136_Y, Q = \core.mosi).
+
+47. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_h03_spi_mode0..
+Removed 13 unused cells and 19 unused wires.
+<suppressed ~14 debug messages>
+
+48. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_h03_spi_mode0.
+<suppressed ~8 debug messages>
+
+49. Rerunning OPT passes. (Maybe there is more to do…)
+
+50. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_h03_spi_mode0..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~34 debug messages>
+
+51. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_h03_spi_mode0.
+Performed a total of 0 changes.
+
+52. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_h03_spi_mode0'.
+Computing hashes of 81 cells of `\tt_um_h03_spi_mode0'.
+Finding duplicate cells in `\tt_um_h03_spi_mode0'.
+Computing hashes of 69 cells of `\tt_um_h03_spi_mode0'.
+Finding duplicate cells in `\tt_um_h03_spi_mode0'.
+Computing hashes of 68 cells of `\tt_um_h03_spi_mode0'.
+Finding duplicate cells in `\tt_um_h03_spi_mode0'.
+<suppressed ~39 debug messages>
+Removed a total of 13 cells.
+
+53. Executing OPT_DFF pass (perform DFF optimizations).
+
+54. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_h03_spi_mode0..
+Removed 1 unused cells and 14 unused wires.
+<suppressed ~2 debug messages>
+
+55. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_h03_spi_mode0.
+
+56. Rerunning OPT passes. (Maybe there is more to do…)
+
+57. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_h03_spi_mode0..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~34 debug messages>
+
+58. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_h03_spi_mode0.
+Performed a total of 0 changes.
+
+59. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_h03_spi_mode0'.
+Computing hashes of 67 cells of `\tt_um_h03_spi_mode0'.
+Finding duplicate cells in `\tt_um_h03_spi_mode0'.
+Removed a total of 0 cells.
+
+60. Executing OPT_DFF pass (perform DFF optimizations).
+
+61. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_h03_spi_mode0..
+
+62. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_h03_spi_mode0.
+
+63. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 2) from port B of cell tt_um_h03_spi_mode0.$auto$opt_dff.cc:235:make_patterns_logic$226 ($ne).
+Removed top 1 bits (of 8) from FF cell tt_um_h03_spi_mode0.$auto$ff.cc:337:slice$216 ($sdffe).
+Removed top 1 bits (of 2) from port B of cell tt_um_h03_spi_mode0.$auto$opt_dff.cc:235:make_patterns_logic$208 ($ne).
+Removed top 1 bits (of 3) from port B of cell tt_um_h03_spi_mode0.$auto$fsm_map.cc:77:implement_pattern_cache$195 ($eq).
+Removed top 1 bits (of 2) from port B of cell tt_um_h03_spi_mode0.$auto$fsm_map.cc:77:implement_pattern_cache$191 ($eq).
+Removed top 1 bits (of 2) from port B of cell tt_um_h03_spi_mode0.$auto$fsm_map.cc:77:implement_pattern_cache$178 ($eq).
+Removed top 1 bits (of 8) from mux cell tt_um_h03_spi_mode0.$flatten\core.$procmux$64 ($pmux).
+Removed top 1 bits (of 8) from mux cell tt_um_h03_spi_mode0.$flatten\core.$procmux$76 ($mux).
+Removed top 1 bits (of 8) from mux cell tt_um_h03_spi_mode0.$flatten\core.$procmux$73 ($mux).
+Removed top 1 bits (of 8) from mux cell tt_um_h03_spi_mode0.$flatten\core.$procmux$71 ($mux).
+Removed top 1 bits (of 8) from mux cell tt_um_h03_spi_mode0.$flatten\core.$procmux$68 ($mux).
+Removed top 1 bits (of 8) from wire tt_um_h03_spi_mode0.$flatten\core.$procmux$64_Y.
+Removed top 3 bits (of 8) from wire tt_um_h03_spi_mode0.$flatten\core.$procmux$68_Y.
+Removed top 1 bits (of 8) from wire tt_um_h03_spi_mode0.$flatten\core.$procmux$71_Y.
+Removed top 3 bits (of 8) from wire tt_um_h03_spi_mode0.$flatten\core.$procmux$73_Y.
+Removed top 1 bits (of 8) from wire tt_um_h03_spi_mode0.$flatten\core.$procmux$76_Y.
+Removed top 3 bits (of 4) from wire tt_um_h03_spi_mode0.$flatten\core.$procmux$83_Y.
+
+64. Executing PEEPOPT pass (run peephole optimizers).
+
+65. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_h03_spi_mode0..
+Removed 0 unused cells and 6 unused wires.
+<suppressed ~1 debug messages>
+
+66. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module tt_um_h03_spi_mode0:
+  creating $macc model for $flatten\core.$add$/mnt/d/H03_SPI_Mode0/DL_24101170_H03/rtl/h03_spi_master.sv:104$10 ($add).
+  creating $macc model for $flatten\core.$add$/mnt/d/H03_SPI_Mode0/DL_24101170_H03/rtl/h03_spi_master.sv:86$8 ($add).
+  creating $alu model for $macc $flatten\core.$add$/mnt/d/H03_SPI_Mode0/DL_24101170_H03/rtl/h03_spi_master.sv:86$8.
+  creating $alu model for $macc $flatten\core.$add$/mnt/d/H03_SPI_Mode0/DL_24101170_H03/rtl/h03_spi_master.sv:104$10.
+  creating $alu cell for $flatten\core.$add$/mnt/d/H03_SPI_Mode0/DL_24101170_H03/rtl/h03_spi_master.sv:104$10: $auto$alumacc.cc:512:replace_alu$275
+  creating $alu cell for $flatten\core.$add$/mnt/d/H03_SPI_Mode0/DL_24101170_H03/rtl/h03_spi_master.sv:86$8: $auto$alumacc.cc:512:replace_alu$278
+  created 2 $alu and 0 $macc cells.
+
+67. Executing SHARE pass (SAT-based resource sharing).
+
+68. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_h03_spi_mode0.
+
+69. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_h03_spi_mode0'.
+Computing hashes of 67 cells of `\tt_um_h03_spi_mode0'.
+Finding duplicate cells in `\tt_um_h03_spi_mode0'.
+Removed a total of 0 cells.
+
+70. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_h03_spi_mode0..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~34 debug messages>
+
+71. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_h03_spi_mode0.
+Performed a total of 0 changes.
+
+72. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_h03_spi_mode0'.
+Computing hashes of 67 cells of `\tt_um_h03_spi_mode0'.
+Finding duplicate cells in `\tt_um_h03_spi_mode0'.
+Removed a total of 0 cells.
+
+73. Executing OPT_DFF pass (perform DFF optimizations).
+
+74. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_h03_spi_mode0..
+
+75. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_h03_spi_mode0.
+
+76. Executing MEMORY pass.
+
+76.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+76.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+76.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+76.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+76.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+76.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_h03_spi_mode0..
+
+76.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+76.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+76.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_h03_spi_mode0..
+
+76.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+77. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_h03_spi_mode0..
+
+78. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_h03_spi_mode0.
+<suppressed ~24 debug messages>
+
+79. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_h03_spi_mode0'.
+Computing hashes of 52 cells of `\tt_um_h03_spi_mode0'.
+Finding duplicate cells in `\tt_um_h03_spi_mode0'.
+Removed a total of 0 cells.
+
+80. Executing OPT_DFF pass (perform DFF optimizations).
+
+81. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_h03_spi_mode0..
+Removed 0 unused cells and 15 unused wires.
+<suppressed ~1 debug messages>
+
+82. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+83. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_h03_spi_mode0.
+
+84. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_h03_spi_mode0'.
+Computing hashes of 52 cells of `\tt_um_h03_spi_mode0'.
+Finding duplicate cells in `\tt_um_h03_spi_mode0'.
+Removed a total of 0 cells.
+
+85. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_h03_spi_mode0..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~15 debug messages>
+
+86. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_h03_spi_mode0.
+    New ctrl vector for $pmux cell $flatten\core.$procmux$48: \core.state [2]
+  Optimizing cells in module \tt_um_h03_spi_mode0.
+Performed a total of 1 changes.
+
+87. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_h03_spi_mode0'.
+Computing hashes of 52 cells of `\tt_um_h03_spi_mode0'.
+Finding duplicate cells in `\tt_um_h03_spi_mode0'.
+Removed a total of 0 cells.
+
+88. Executing OPT_SHARE pass.
+
+89. Executing OPT_DFF pass (perform DFF optimizations).
+
+90. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_h03_spi_mode0..
+
+91. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_h03_spi_mode0.
+
+92. Rerunning OPT passes. (Maybe there is more to do…)
+
+93. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_h03_spi_mode0..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~15 debug messages>
+
+94. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_h03_spi_mode0.
+Performed a total of 0 changes.
+
+95. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_h03_spi_mode0'.
+Computing hashes of 52 cells of `\tt_um_h03_spi_mode0'.
+Finding duplicate cells in `\tt_um_h03_spi_mode0'.
+Removed a total of 0 cells.
+
+96. Executing OPT_SHARE pass.
+
+97. Executing OPT_DFF pass (perform DFF optimizations).
+
+98. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_h03_spi_mode0..
+
+99. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_h03_spi_mode0.
+
+100. Executing TECHMAP pass (map to technology primitives).
+
+100.1. Executing Verilog-2005 frontend: /nix/store/f1q0w7rd0a4ny4hqvfxlhs4cmariidcy-yosys-0.62/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/nix/store/f1q0w7rd0a4ny4hqvfxlhs4cmariidcy-yosys-0.62/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+100.2. Continuing TECHMAP pass.
+Using template $paramod$32a7b7b86c07519b7537abc18e96f0331f97914d\_90_alu for cells of type $alu.
+Using template $paramod$175e67c02b86e96b1288b9dc100122520d7240d8\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $sdffe.
+Using extmapper simplemap for cells of type $reduce_and.
+Using extmapper simplemap for cells of type $sdff.
+Using extmapper simplemap for cells of type $ne.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $dff.
+Using extmapper simplemap for cells of type $logic_and.
+Using template $paramod$c5c783b17ab1d780abfad8cfe6563a0a7b47a3b0\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $mux.
+Using template $paramod$b756e651b7db7aeb455331d9a2df073db93fcc2e\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000010 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000010 for cells of type $lcu.
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000100 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000100 for cells of type $lcu.
+Using extmapper simplemap for cells of type $or.
+No more expansions possible.
+<suppressed ~494 debug messages>
+
+101. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_h03_spi_mode0.
+<suppressed ~94 debug messages>
+
+102. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_h03_spi_mode0'.
+Computing hashes of 180 cells of `\tt_um_h03_spi_mode0'.
+Finding duplicate cells in `\tt_um_h03_spi_mode0'.
+Computing hashes of 159 cells of `\tt_um_h03_spi_mode0'.
+Finding duplicate cells in `\tt_um_h03_spi_mode0'.
+Computing hashes of 158 cells of `\tt_um_h03_spi_mode0'.
+Finding duplicate cells in `\tt_um_h03_spi_mode0'.
+<suppressed ~66 debug messages>
+Removed a total of 22 cells.
+
+103. Executing OPT_DFF pass (perform DFF optimizations).
+
+104. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_h03_spi_mode0..
+Removed 5 unused cells and 194 unused wires.
+<suppressed ~6 debug messages>
+
+105. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_h03_spi_mode0.
+
+106. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_h03_spi_mode0'.
+Computing hashes of 153 cells of `\tt_um_h03_spi_mode0'.
+Finding duplicate cells in `\tt_um_h03_spi_mode0'.
+Removed a total of 0 cells.
+
+107. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $auto$ff.cc:337:slice$367 ($_SDFF_PN0_) from module tt_um_h03_spi_mode0 (D = $flatten\core.$procmux$20.Y_B, Q = \core.busy, rval = 1'0).
+
+108. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_h03_spi_mode0..
+Removed 1 unused cells and 2 unused wires.
+<suppressed ~2 debug messages>
+
+109. Rerunning OPT passes (Removed registers in this run.)
+
+110. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_h03_spi_mode0.
+
+111. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_h03_spi_mode0'.
+Computing hashes of 153 cells of `\tt_um_h03_spi_mode0'.
+Finding duplicate cells in `\tt_um_h03_spi_mode0'.
+Removed a total of 0 cells.
+
+112. Executing OPT_DFF pass (perform DFF optimizations).
+
+113. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_h03_spi_mode0..
+
+114. Executing ABC pass (technology mapping using ABC).
+
+114.1. Extracting gate netlist of module `\tt_um_h03_spi_mode0' to `<abc-temp-dir>/input.blif'..
+
+114.1.1. Executed ABC.
+Extracted 115 gates and 153 wires to a netlist network with 36 inputs and 34 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: ======== ABC command line "source <abc-temp-dir>/abc.script"
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library /tmp/yosys-abc-Kew9ZC/stdcells.genlib 
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+114.1.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:       20
+ABC RESULTS:            ANDNOT cells:       35
+ABC RESULTS:              NAND cells:       14
+ABC RESULTS:               NOR cells:        3
+ABC RESULTS:               NOT cells:        3
+ABC RESULTS:                OR cells:       16
+ABC RESULTS:             ORNOT cells:        4
+ABC RESULTS:              XNOR cells:        2
+ABC RESULTS:               XOR cells:        2
+ABC RESULTS:        internal signals:       83
+ABC RESULTS:           input signals:       36
+ABC RESULTS:          output signals:       34
+Removing temp directory.
+Removing global temp directory.
+
+115. Executing OPT pass (performing simple optimizations).
+
+115.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_h03_spi_mode0.
+
+115.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_h03_spi_mode0'.
+Computing hashes of 137 cells of `\tt_um_h03_spi_mode0'.
+Finding duplicate cells in `\tt_um_h03_spi_mode0'.
+Removed a total of 0 cells.
+
+115.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+115.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_h03_spi_mode0..
+Removed 0 unused cells and 113 unused wires.
+<suppressed ~3 debug messages>
+
+115.5. Finished fast OPT passes.
+
+116. Executing HIERARCHY pass (managing design hierarchy).
+
+116.1. Analyzing design hierarchy..
+Top module:  \tt_um_h03_spi_mode0
+
+116.2. Analyzing design hierarchy..
+Top module:  \tt_um_h03_spi_mode0
+Removed 0 unused modules.
+
+117. Executing CHECK pass (checking for obvious problems).
+Checking module tt_um_h03_spi_mode0...
+Found and reported 0 problems.
+
+118. Printing statistics.
+
+=== tt_um_h03_spi_mode0 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      123 wires
+      205 wire bits
+       30 public wires
+      106 public wire bits
+        8 ports
+       43 port bits
+      137 cells
+       35   $_ANDNOT_
+       20   $_AND_
+        3   $_DFF_P_
+       14   $_NAND_
+        3   $_NOR_
+        3   $_NOT_
+        4   $_ORNOT_
+       16   $_OR_
+        3   $_SDFFE_PN0N_
+       28   $_SDFFE_PN0P_
+        1   $_SDFFE_PN1N_
+        2   $_SDFF_PN0_
+        2   $_XNOR_
+        2   $_XOR_
+        1   $scopeinfo
+
+119. Executing OPT pass (performing simple optimizations).
+
+119.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_h03_spi_mode0.
+
+119.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_h03_spi_mode0'.
+Computing hashes of 137 cells of `\tt_um_h03_spi_mode0'.
+Finding duplicate cells in `\tt_um_h03_spi_mode0'.
+Removed a total of 0 cells.
+
+119.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_h03_spi_mode0..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+119.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_h03_spi_mode0.
+Performed a total of 0 changes.
+
+119.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_h03_spi_mode0'.
+Computing hashes of 137 cells of `\tt_um_h03_spi_mode0'.
+Finding duplicate cells in `\tt_um_h03_spi_mode0'.
+Removed a total of 0 cells.
+
+119.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+119.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_h03_spi_mode0..
+
+119.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_h03_spi_mode0.
+
+119.9. Finished fast OPT passes. (There is nothing left to do.)
+
+120. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_h03_spi_mode0..
+Removed 1 unused cells and 12 unused wires.
+<suppressed ~13 debug messages>
+{
+   "creator": "Yosys 0.62 (git sha1 7326bb7d6641500ecb285c291a54a662cb1e76cf, clang++ 21.1.2 -fPIC -O3)",
+   "invocation": "stat -json -liberty /mnt/d/H03_SPI_Mode0/DL_24101170_H03/flow/runs/physical_001/tmp/420e2aeb6f0245a5b257f8a44b00f726.lib ",
+   "modules": {
+      "\\tt_um_h03_spi_mode0": {
+         "num_wires":         111,
+         "num_wire_bits":     172,
+         "num_pub_wires":     18,
+         "num_pub_wire_bits": 73,
+         "num_ports":         8,
+         "num_port_bits":     43,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         136,
+         "num_submodules":       0,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 35,
+            "$_AND_": 20,
+            "$_DFF_P_": 3,
+            "$_NAND_": 14,
+            "$_NOR_": 3,
+            "$_NOT_": 3,
+            "$_ORNOT_": 4,
+            "$_OR_": 16,
+            "$_SDFFE_PN0N_": 3,
+            "$_SDFFE_PN0P_": 28,
+            "$_SDFFE_PN1N_": 1,
+            "$_SDFF_PN0_": 2,
+            "$_XNOR_": 2,
+            "$_XOR_": 2
+         }
+      }
+   },
+      "design": {
+         "num_wires":         111,
+         "num_wire_bits":     172,
+         "num_pub_wires":     18,
+         "num_pub_wire_bits": 73,
+         "num_ports":         8,
+         "num_port_bits":     43,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         136,
+         "num_submodules":       0,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 35,
+            "$_AND_": 20,
+            "$_DFF_P_": 3,
+            "$_NAND_": 14,
+            "$_NOR_": 3,
+            "$_NOT_": 3,
+            "$_ORNOT_": 4,
+            "$_OR_": 16,
+            "$_SDFFE_PN0N_": 3,
+            "$_SDFFE_PN0P_": 28,
+            "$_SDFFE_PN1N_": 1,
+            "$_SDFF_PN0_": 2,
+            "$_XNOR_": 2,
+            "$_XOR_": 2
+         }
+      }
+}
+
+121. Printing statistics.
+
+=== tt_um_h03_spi_mode0 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      111 wires
+      172 wire bits
+       18 public wires
+       73 public wire bits
+        8 ports
+       43 port bits
+      136 cells
+       35   $_ANDNOT_
+       20   $_AND_
+        3   $_DFF_P_
+       14   $_NAND_
+        3   $_NOR_
+        3   $_NOT_
+        4   $_ORNOT_
+       16   $_OR_
+        3   $_SDFFE_PN0N_
+       28   $_SDFFE_PN0P_
+        1   $_SDFFE_PN1N_
+        2   $_SDFF_PN0_
+        2   $_XNOR_
+        2   $_XOR_
+
+   Area for cell type $_ANDNOT_ is unknown!
+   Area for cell type $_AND_ is unknown!
+   Area for cell type $_DFF_P_ is unknown!
+   Area for cell type $_NAND_ is unknown!
+   Area for cell type $_NOR_ is unknown!
+   Area for cell type $_NOT_ is unknown!
+   Area for cell type $_ORNOT_ is unknown!
+   Area for cell type $_OR_ is unknown!
+   Area for cell type $_SDFFE_PN0N_ is unknown!
+   Area for cell type $_SDFFE_PN0P_ is unknown!
+   Area for cell type $_SDFFE_PN1N_ is unknown!
+   Area for cell type $_SDFF_PN0_ is unknown!
+   Area for cell type $_XNOR_ is unknown!
+   Area for cell type $_XOR_ is unknown!
+
+[INFO] Applying tri-state buffer mapping from '/home/duongluong/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tribuff_map.v'…
+
+122. Executing TECHMAP pass (map to technology primitives).
+
+122.1. Executing Verilog-2005 frontend: /home/duongluong/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tribuff_map.v
+Parsing Verilog input from `/home/duongluong/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tribuff_map.v' to AST representation.
+Generating RTLIL representation for module `$_TBUF_'.
+Successfully finished Verilog frontend.
+
+122.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~3 debug messages>
+
+123. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+[INFO] Applying latch mapping from '/home/duongluong/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.tech/openlane/sky130_fd_sc_hd/latch_map.v'…
+
+124. Executing TECHMAP pass (map to technology primitives).
+
+124.1. Executing Verilog-2005 frontend: /home/duongluong/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.tech/openlane/sky130_fd_sc_hd/latch_map.v
+Parsing Verilog input from `/home/duongluong/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.tech/openlane/sky130_fd_sc_hd/latch_map.v' to AST representation.
+Generating RTLIL representation for module `$_DLATCH_P_'.
+Generating RTLIL representation for module `$_DLATCH_N_'.
+Successfully finished Verilog frontend.
+
+124.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~4 debug messages>
+
+125. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+
+126. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+  cell sky130_fd_sc_hd__dfxtp_2 (noninv, pins=3, area=21.27) is a direct match for cell type $_DFF_P_.
+  cell sky130_fd_sc_hd__dfrtp_2 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN0_.
+  cell sky130_fd_sc_hd__dfstp_2 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN1_.
+  cell sky130_fd_sc_hd__dfbbn_2 (noninv, pins=6, area=35.03) is a direct match for cell type $_DFFSR_NNN_.
+  final dff cell mappings:
+    unmapped dff cell: $_DFF_N_
+    \sky130_fd_sc_hd__dfxtp_2 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    unmapped dff cell: $_DFF_NN0_
+    unmapped dff cell: $_DFF_NN1_
+    unmapped dff cell: $_DFF_NP0_
+    unmapped dff cell: $_DFF_NP1_
+    \sky130_fd_sc_hd__dfrtp_2 _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .RESET_B( R));
+    \sky130_fd_sc_hd__dfstp_2 _DFF_PN1_ (.CLK( C), .D( D), .Q( Q), .SET_B( R));
+    unmapped dff cell: $_DFF_PP0_
+    unmapped dff cell: $_DFF_PP1_
+    unmapped dff cell: $_DFFE_NN_
+    unmapped dff cell: $_DFFE_NP_
+    unmapped dff cell: $_DFFE_PN_
+    unmapped dff cell: $_DFFE_PP_
+    \sky130_fd_sc_hd__dfbbn_2 _DFFSR_NNN_ (.CLK_N( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff cell: $_DFFSR_NNP_
+    unmapped dff cell: $_DFFSR_NPN_
+    unmapped dff cell: $_DFFSR_NPP_
+    unmapped dff cell: $_DFFSR_PNN_
+    unmapped dff cell: $_DFFSR_PNP_
+    unmapped dff cell: $_DFFSR_PPN_
+    unmapped dff cell: $_DFFSR_PPP_
+
+126.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+Mapping DFF cells in module `\tt_um_h03_spi_mode0':
+  mapped 37 $_DFF_P_ cells to \sky130_fd_sc_hd__dfxtp_2 cells.
+{
+   "creator": "Yosys 0.62 (git sha1 7326bb7d6641500ecb285c291a54a662cb1e76cf, clang++ 21.1.2 -fPIC -O3)",
+   "invocation": "stat -json -liberty /mnt/d/H03_SPI_Mode0/DL_24101170_H03/flow/runs/physical_001/tmp/420e2aeb6f0245a5b257f8a44b00f726.lib ",
+   "modules": {
+      "\\tt_um_h03_spi_mode0": {
+         "num_wires":         177,
+         "num_wire_bits":     238,
+         "num_pub_wires":     18,
+         "num_pub_wire_bits": 73,
+         "num_ports":         8,
+         "num_port_bits":     43,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         202,
+         "num_submodules":       0,
+         "area":              787.004800,
+         "sequential_area":    787.004800,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 35,
+            "$_AND_": 20,
+            "$_MUX_": 66,
+            "$_NAND_": 14,
+            "$_NOR_": 3,
+            "$_NOT_": 3,
+            "$_ORNOT_": 4,
+            "$_OR_": 16,
+            "$_XNOR_": 2,
+            "$_XOR_": 2,
+            "sky130_fd_sc_hd__dfxtp_2": 37
+         }
+      }
+   },
+      "design": {
+         "num_wires":         177,
+         "num_wire_bits":     238,
+         "num_pub_wires":     18,
+         "num_pub_wire_bits": 73,
+         "num_ports":         8,
+         "num_port_bits":     43,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         202,
+         "num_submodules":       0,
+         "area":              787.004800,
+         "sequential_area":    787.004800,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 35,
+            "$_AND_": 20,
+            "$_MUX_": 66,
+            "$_NAND_": 14,
+            "$_NOR_": 3,
+            "$_NOT_": 3,
+            "$_ORNOT_": 4,
+            "$_OR_": 16,
+            "$_XNOR_": 2,
+            "$_XOR_": 2,
+            "sky130_fd_sc_hd__dfxtp_2": 37
+         }
+      }
+}
+
+127. Printing statistics.
+
+=== tt_um_h03_spi_mode0 ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+      177        - wires
+      238        - wire bits
+       18        - public wires
+       73        - public wire bits
+        8        - ports
+       43        - port bits
+      202  787.005 cells
+       35        -   $_ANDNOT_
+       20        -   $_AND_
+       66        -   $_MUX_
+       14        -   $_NAND_
+        3        -   $_NOR_
+        3        -   $_NOT_
+        4        -   $_ORNOT_
+       16        -   $_OR_
+        2        -   $_XNOR_
+        2        -   $_XOR_
+       37  787.005   sky130_fd_sc_hd__dfxtp_2
+
+   Area for cell type $_ANDNOT_ is unknown!
+   Area for cell type $_AND_ is unknown!
+   Area for cell type $_MUX_ is unknown!
+   Area for cell type $_NAND_ is unknown!
+   Area for cell type $_NOR_ is unknown!
+   Area for cell type $_NOT_ is unknown!
+   Area for cell type $_ORNOT_ is unknown!
+   Area for cell type $_OR_ is unknown!
+   Area for cell type $_XNOR_ is unknown!
+   Area for cell type $_XOR_ is unknown!
+
+   Chip area for module '\tt_um_h03_spi_mode0': 787.004800
+     of which used for sequential elements: 787.004800 (100.00%)
+
+[INFO] Using generated ABC script '/mnt/d/H03_SPI_Mode0/DL_24101170_H03/flow/runs/physical_001/06-yosys-synthesis/AREA_0.abc'…
+
+128. Executing ABC pass (technology mapping using ABC).
+
+128.1. Extracting gate netlist of module `\tt_um_h03_spi_mode0' to `/tmp/yosys-abc-LRVJxs/input.blif'..
+
+128.1.1. Executed ABC.
+Extracted 165 gates and 214 wires to a netlist network with 47 inputs and 37 outputs.
+Running ABC script: /tmp/yosys-abc-LRVJxs/abc.script
+ABC: ======== ABC command line "source /tmp/yosys-abc-LRVJxs/abc.script"
+ABC: + read_blif /tmp/yosys-abc-LRVJxs/input.blif 
+ABC: + read_lib -w /mnt/d/H03_SPI_Mode0/DL_24101170_H03/flow/runs/physical_001/tmp/420e2aeb6f0245a5b257f8a44b00f726.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.06 sec
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_8".
+ABC: Library "sky130_fd_sc_hd__tt_025C_1v80" from "/mnt/d/H03_SPI_Mode0/DL_24101170_H03/flow/runs/physical_001/tmp/420e2aeb6f0245a5b257f8a44b00f726.lib" has 175 cells (17 skipped: 14 seq; 3 tri-state; 0 no func; 0 dont_use; 0 with 2 outputs; 0 with 3+ outputs).  Time =     0.09 sec
+ABC: Memory =    9.54 MB. Time =     0.09 sec
+ABC: Warning: Detected 2 multi-output cells (for example, "sky130_fd_sc_hd__fa_1").
+ABC: + read_constr -v /mnt/d/H03_SPI_Mode0/DL_24101170_H03/flow/runs/physical_001/06-yosys-synthesis/synthesis.abc.sdc 
+ABC: Setting driving cell to be "sky130_fd_sc_hd__inv_2".
+ABC: Setting output load to be 33.442001.
+ABC: + source /mnt/d/H03_SPI_Mode0/DL_24101170_H03/flow/runs/physical_001/06-yosys-synthesis/AREA_0.abc 
+ABC: Error: The network is combinational.
+ABC: WireLoad = "none"  Gates =     91 (  2.2 %)   Cap = 13.8 ff (  2.2 %)   Area =      814.53 ( 93.4 %)   Delay =  1415.78 ps  ( 20.9 %)               
+ABC: Path  0 --      17 : 0    4 pi                        A =   0.00  Df =  36.6  -20.4 ps  S =  56.3 ps  Cin =  0.0 ff  Cout =  10.8 ff  Cmax =   0.0 ff  G =    0  
+ABC: Path  1 --      88 : 4    2 sky130_fd_sc_hd__or4b_2   A =  10.01  Df = 692.9 -483.3 ps  S = 115.4 ps  Cin =  1.5 ff  Cout =   6.6 ff  Cmax = 265.5 ff  G =  427  
+ABC: Path  2 --     100 : 3    9 sky130_fd_sc_hd__a21boi_2 A =  11.26  Df = 965.7 -671.5 ps  S = 246.7 ps  Cin =  3.6 ff  Cout =  18.7 ff  Cmax = 129.1 ff  G =  490  
+ABC: Path  3 --     105 : 3    1 sky130_fd_sc_hd__or3_2    A =   7.51  Df =1129.9 -132.5 ps  S =  73.5 ps  Cin =  1.5 ff  Cout =   2.4 ff  Cmax = 310.4 ff  G =  154  
+ABC: Path  4 --     106 : 4    1 sky130_fd_sc_hd__o211a_2  A =  10.01  Df =1415.8   -0.8 ps  S = 204.0 ps  Cin =  2.4 ff  Cout =  33.4 ff  Cmax = 268.3 ff  G = 1415  
+ABC: Start-point = pi16 (\core.edge_count [2]).  End-point = po3 ($auto$rtlil.cc:3583:MuxGate$909).
+ABC: netlist                       : i/o =   47/   37  lat =    0  nd =    91  edge =    296  area =814.64  delay = 4.00  lev = 4
+ABC: + write_blif /tmp/yosys-abc-LRVJxs/output.blif 
+
+128.1.2. Re-integrating ABC results.
+ABC RESULTS:   sky130_fd_sc_hd__a211o_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__a211oi_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a21bo_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a21boi_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__a21o_2 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__a22o_2 cells:       15
+ABC RESULTS:   sky130_fd_sc_hd__a31o_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a32o_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a41o_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__and2_2 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__and2b_2 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__and3_2 cells:       11
+ABC RESULTS:   sky130_fd_sc_hd__and4_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__and4b_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__inv_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__mux2_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nand2_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__nand2b_2 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__nand3_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__nand3b_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nor2_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o211a_2 cells:       10
+ABC RESULTS:   sky130_fd_sc_hd__o22a_2 cells:        8
+ABC RESULTS:   sky130_fd_sc_hd__or2_2 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__or3_2 cells:        7
+ABC RESULTS:   sky130_fd_sc_hd__or4b_2 cells:        1
+ABC RESULTS:        internal signals:      130
+ABC RESULTS:           input signals:       47
+ABC RESULTS:          output signals:       37
+Removing temp directory.
+Removing global temp directory.
+
+129. Executing SETUNDEF pass (replace undef values with defined constants).
+
+130. Executing HILOMAP pass (mapping to constant drivers).
+
+131. Executing SPLITNETS pass (splitting up multi-bit signals).
+
+132. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_h03_spi_mode0..
+Removed 1 unused cells and 225 unused wires.
+<suppressed ~3 debug messages>
+
+133. Executing INSBUF pass (insert buffer cells for connected wires).
+Add tt_um_h03_spi_mode0/$auto$insbuf.cc:97:execute$1154: \busy -> \uio_out [5]
+Add tt_um_h03_spi_mode0/$auto$insbuf.cc:97:execute$1155: \core.done -> \uio_out [6]
+Add tt_um_h03_spi_mode0/$auto$insbuf.cc:97:execute$1156: \core.sclk -> \uo_out [0]
+Add tt_um_h03_spi_mode0/$auto$insbuf.cc:97:execute$1157: \core.mosi -> \uo_out [1]
+Add tt_um_h03_spi_mode0/$auto$insbuf.cc:97:execute$1158: \core.cs_n -> \uo_out [2]
+
+134. Executing CHECK pass (checking for obvious problems).
+Checking module tt_um_h03_spi_mode0...
+Found and reported 0 problems.
+{
+   "creator": "Yosys 0.62 (git sha1 7326bb7d6641500ecb285c291a54a662cb1e76cf, clang++ 21.1.2 -fPIC -O3)",
+   "invocation": "stat -json -liberty /mnt/d/H03_SPI_Mode0/DL_24101170_H03/flow/runs/physical_001/tmp/420e2aeb6f0245a5b257f8a44b00f726.lib ",
+   "modules": {
+      "\\tt_um_h03_spi_mode0": {
+         "num_wires":         128,
+         "num_wire_bits":     163,
+         "num_pub_wires":     37,
+         "num_pub_wire_bits": 72,
+         "num_ports":         8,
+         "num_port_bits":     43,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         144,
+         "num_submodules":       0,
+         "area":              1667.849600,
+         "sequential_area":    787.004800,
+         "num_cells_by_type": {
+            "sky130_fd_sc_hd__a211o_2": 2,
+            "sky130_fd_sc_hd__a211oi_2": 1,
+            "sky130_fd_sc_hd__a21bo_2": 1,
+            "sky130_fd_sc_hd__a21boi_2": 2,
+            "sky130_fd_sc_hd__a21o_2": 5,
+            "sky130_fd_sc_hd__a22o_2": 15,
+            "sky130_fd_sc_hd__a31o_2": 1,
+            "sky130_fd_sc_hd__a32o_2": 1,
+            "sky130_fd_sc_hd__a41o_2": 1,
+            "sky130_fd_sc_hd__and2_2": 5,
+            "sky130_fd_sc_hd__and2b_2": 3,
+            "sky130_fd_sc_hd__and3_2": 11,
+            "sky130_fd_sc_hd__and4_2": 1,
+            "sky130_fd_sc_hd__and4b_2": 1,
+            "sky130_fd_sc_hd__buf_2": 5,
+            "sky130_fd_sc_hd__conb_1": 11,
+            "sky130_fd_sc_hd__dfxtp_2": 37,
+            "sky130_fd_sc_hd__inv_2": 2,
+            "sky130_fd_sc_hd__mux2_1": 1,
+            "sky130_fd_sc_hd__nand2_2": 2,
+            "sky130_fd_sc_hd__nand2b_2": 3,
+            "sky130_fd_sc_hd__nand3_2": 2,
+            "sky130_fd_sc_hd__nand3b_2": 1,
+            "sky130_fd_sc_hd__nor2_2": 1,
+            "sky130_fd_sc_hd__o211a_2": 10,
+            "sky130_fd_sc_hd__o22a_2": 8,
+            "sky130_fd_sc_hd__or2_2": 3,
+            "sky130_fd_sc_hd__or3_2": 7,
+            "sky130_fd_sc_hd__or4b_2": 1
+         }
+      }
+   },
+      "design": {
+         "num_wires":         128,
+         "num_wire_bits":     163,
+         "num_pub_wires":     37,
+         "num_pub_wire_bits": 72,
+         "num_ports":         8,
+         "num_port_bits":     43,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         144,
+         "num_submodules":       0,
+         "area":              1667.849600,
+         "sequential_area":    787.004800,
+         "num_cells_by_type": {
+            "sky130_fd_sc_hd__a211o_2": 2,
+            "sky130_fd_sc_hd__a211oi_2": 1,
+            "sky130_fd_sc_hd__a21bo_2": 1,
+            "sky130_fd_sc_hd__a21boi_2": 2,
+            "sky130_fd_sc_hd__a21o_2": 5,
+            "sky130_fd_sc_hd__a22o_2": 15,
+            "sky130_fd_sc_hd__a31o_2": 1,
+            "sky130_fd_sc_hd__a32o_2": 1,
+            "sky130_fd_sc_hd__a41o_2": 1,
+            "sky130_fd_sc_hd__and2_2": 5,
+            "sky130_fd_sc_hd__and2b_2": 3,
+            "sky130_fd_sc_hd__and3_2": 11,
+            "sky130_fd_sc_hd__and4_2": 1,
+            "sky130_fd_sc_hd__and4b_2": 1,
+            "sky130_fd_sc_hd__buf_2": 5,
+            "sky130_fd_sc_hd__conb_1": 11,
+            "sky130_fd_sc_hd__dfxtp_2": 37,
+            "sky130_fd_sc_hd__inv_2": 2,
+            "sky130_fd_sc_hd__mux2_1": 1,
+            "sky130_fd_sc_hd__nand2_2": 2,
+            "sky130_fd_sc_hd__nand2b_2": 3,
+            "sky130_fd_sc_hd__nand3_2": 2,
+            "sky130_fd_sc_hd__nand3b_2": 1,
+            "sky130_fd_sc_hd__nor2_2": 1,
+            "sky130_fd_sc_hd__o211a_2": 10,
+            "sky130_fd_sc_hd__o22a_2": 8,
+            "sky130_fd_sc_hd__or2_2": 3,
+            "sky130_fd_sc_hd__or3_2": 7,
+            "sky130_fd_sc_hd__or4b_2": 1
+         }
+      }
+}
+
+135. Printing statistics.
+
+=== tt_um_h03_spi_mode0 ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+      128        - wires
+      163        - wire bits
+       37        - public wires
+       72        - public wire bits
+        8        - ports
+       43        - port bits
+      144  1667.85 cells
+        2   20.019   sky130_fd_sc_hd__a211o_2
+        1   12.512   sky130_fd_sc_hd__a211oi_2
+        1    10.01   sky130_fd_sc_hd__a21bo_2
+        2   22.522   sky130_fd_sc_hd__a21boi_2
+        5   43.792   sky130_fd_sc_hd__a21o_2
+       15  150.144   sky130_fd_sc_hd__a22o_2
+        1    8.758   sky130_fd_sc_hd__a31o_2
+        1   11.261   sky130_fd_sc_hd__a32o_2
+        1   11.261   sky130_fd_sc_hd__a41o_2
+        5   37.536   sky130_fd_sc_hd__and2_2
+        3   26.275   sky130_fd_sc_hd__and2b_2
+       11   82.579   sky130_fd_sc_hd__and3_2
+        1    10.01   sky130_fd_sc_hd__and4_2
+        1   11.261   sky130_fd_sc_hd__and4b_2
+        5   25.024   sky130_fd_sc_hd__buf_2
+       11    41.29   sky130_fd_sc_hd__conb_1
+       37  787.005   sky130_fd_sc_hd__dfxtp_2
+        2    7.507   sky130_fd_sc_hd__inv_2
+        1   11.261   sky130_fd_sc_hd__mux2_1
+        2   12.512   sky130_fd_sc_hd__nand2_2
+        3   26.275   sky130_fd_sc_hd__nand2b_2
+        2   20.019   sky130_fd_sc_hd__nand3_2
+        1   11.261   sky130_fd_sc_hd__nand3b_2
+        1    6.256   sky130_fd_sc_hd__nor2_2
+       10  100.096   sky130_fd_sc_hd__o211a_2
+        8   80.077   sky130_fd_sc_hd__o22a_2
+        3   18.768   sky130_fd_sc_hd__or2_2
+        7    52.55   sky130_fd_sc_hd__or3_2
+        1    10.01   sky130_fd_sc_hd__or4b_2
+
+   Chip area for module '\tt_um_h03_spi_mode0': 1667.849600
+     of which used for sequential elements: 787.004800 (47.19%)
+
+136. Executing Verilog backend.
+Dumping module `\tt_um_h03_spi_mode0'.
+
+137. Executing JSON backend.

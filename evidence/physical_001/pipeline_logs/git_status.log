@@ -1,0 +1,29 @@
+ M .gitignore
+ M README.md
+ M docs/architecture.md
+ M docs/verification_matrix.md
+ M evidence/sim_001/compile_exit.txt
+ M evidence/sim_001/sample_mode0.vcd
+ M evidence/sim_001/simulation.log
+ M evidence/sim_001/simulation_exit.txt
+ M evidence/sim_003/compile_exit.txt
+ M evidence/sim_003/sample_mode0.vcd
+ M evidence/sim_003/simulation.log
+ M evidence/sim_003/simulation_exit.txt
+?? .gitattributes
+?? .github/workflows/wrapper.yml
+?? docs/figures/sim002_overview.png
+?? docs/figures/sim003_overview.png
+?? docs/figures/sim004_overview.png
+?? docs/physical_flow.md
+?? docs/presentation_outline.md
+?? docs/report_draft.md
+?? docs/wrapper.md
+?? flow/
+?? "imulation runner and document evidence coverage\""
+?? rtl/tt_um_h03_spi_mode0.sv
+?? scripts/collect_physical.py
+?? scripts/run_physical.py
+?? scripts/run_physical.sh
+?? scripts/run_wrapper.ps1
+?? tb/h03_wrapper_tb.sv
